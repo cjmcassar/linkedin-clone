@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style/Feed.css";
+import Post from "./Post";
+import InputOption from "./InputOption";
 import CreateIcon from "@material-ui/icons/Create";
 import ImageIcon from "@material-ui/icons/Image";
-import InputOption from "./InputOption";
+
 import SubscriptionsIcon from "@material-ui/icons/Subscriptions";
 import EventNoteIcon from "@material-ui/icons/EventNote";
 import CalendarViewDayIcon from "@material-ui/icons/CalendarViewDay";
 
 function Feed() {
+  const [posts, setPosts] = useState([]);
+
+  const sendPost = (e) => {
+    e.preventDefault();
+
+    // Add firebase here
+  };
+
   return (
     <div className="feed">
       <div className="feed__inputContainer">
@@ -15,7 +25,9 @@ function Feed() {
           <CreateIcon />
           <form>
             <input type="text" />
-            <button type="submit">Send</button>
+            <button onClick={sendPost} type="submit">
+              Send
+            </button>
           </form>
         </div>
         <div className="feed__inputOptions">
@@ -29,6 +41,17 @@ function Feed() {
           />
         </div>
       </div>
+
+      {/* Posts */}
+      {posts.map((post) => (
+        <Post />
+      ))}
+      <Post
+        name="Sonny Sangha"
+        description="This is a test"
+        message="This works"
+        photoUrl=""
+      />
     </div>
   );
 }
