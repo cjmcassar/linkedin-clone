@@ -10,8 +10,8 @@ import {
 } from "@material-ui/icons";
 import HeaderOptions from "./HeaderOptions";
 import { Avatar } from "@material-ui/core";
-import { useDispatch } from "react-redux";
-import { logout } from "../features/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, selectUser } from "../features/userSlice";
 import { auth } from "../firebase";
 
 function Header() {
@@ -42,7 +42,7 @@ function Header() {
         <HeaderOptions Icon={BusinessCenter} title="Jobs" />
         <HeaderOptions Icon={Chat} title="Messaging" />
         <HeaderOptions Icon={Notifications} title="Notifications" />
-        <HeaderOptions avatar={Avatar} title="Me" onClick={logoutOfApp} />
+        <HeaderOptions avatar={true} title="Me" onClick={logoutOfApp} />
       </div>
     </div>
   );
