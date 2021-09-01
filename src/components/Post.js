@@ -6,18 +6,18 @@ import {
   ThumbsUpDownOutlined,
 } from "@material-ui/icons";
 
-import React from "react";
+import React, { forwardRef } from "react";
 import InputOption from "./InputOption";
 import "./style/Post.css";
 
-function Post({ name, description, message, photoUrl }) {
+const Post = forwardRef(({ name, description, message, photoUrl }, ref) => {
   return (
-    <div className="post">
+    <div ref={ref} className="post">
       <div className="post__header">
-        <Avatar />
+        <Avatar src={photoUrl}>{name[0]}</Avatar>
         <div className="post__info">
-          <h2>Chris Cassar</h2>
-          <p>Description</p>
+          <h2>{name}</h2>
+          <p>{description}</p>
         </div>
       </div>
 
@@ -33,6 +33,6 @@ function Post({ name, description, message, photoUrl }) {
       </div>
     </div>
   );
-}
+});
 
 export default Post;
