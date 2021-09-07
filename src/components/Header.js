@@ -9,9 +9,8 @@ import {
   Notifications,
 } from "@material-ui/icons";
 import HeaderOptions from "./HeaderOptions";
-import { Avatar } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
-import { logout, selectUser } from "../features/userSlice";
+import { useDispatch } from "react-redux";
+import { logout } from "../features/userSlice";
 import { auth } from "../firebase";
 
 function Header() {
